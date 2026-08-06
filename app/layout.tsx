@@ -1,8 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/Components/layout/Navbar";
+import  { Inter, Noto_Sans_Bengali } from 'next/font/google'
 
 
+const standerd = Inter({
+  subsets: ['latin'],
+  variable: '--font-standerd',
+})
+
+const notoBengali = Noto_Sans_Bengali({
+  subsets: ['bengali'],
+  variable: '--font-noto-bengali',
+})
 
 export const metadata: Metadata = {
   title: "zatiq-clone",
@@ -11,8 +21,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={` h-full antialiased`}>
-      <body>
+    <html lang="en" >
+      <body className={`${standerd.variable} ${notoBengali.variable}`}>
         <Navbar />
         {children}
       </body>

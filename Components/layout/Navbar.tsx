@@ -21,7 +21,7 @@ export default function Navbar() {
   }, [])
 
   return (
-    <div className={`fixed w-full z-10 m-auto transition-all duration-300 backdrop-blur-2xlxl bg-linear-to-r from-[#c9d9ff] via-[#f2f6ff] to-[#e9f0ff]
+    <div className={`fixed w-full z-10 overflow-hidden transition-all duration-300 backdrop-blur-2xlxl bg-linear-to-r from-[#c9d9ff] via-[#f2f6ff] to-[#e9f0ff]
     ${isScroll ? 'bg-transparent rounded-b-xl shadow-md' : ''}`}>
       <div className="flex items-center justify-around py-5 text-black">
         <div>
