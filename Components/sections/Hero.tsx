@@ -1,8 +1,10 @@
 import { ArrowRight } from "lucide-react";
 import { ShimmerButton } from "../ui/shimmer-button";
 import OrdersBarChart from "../charts/OrdersBarChart";
+import SalesChart from "../charts/SalesChart";
 
 export default function Hero() {
+    
     return (
         <div className="max-w-1074px mx-auto text-center space-y-2 border-2 border-black px-4 py-20 text-black">
             <div>
@@ -33,10 +35,11 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div>
+            <div className="flex gap-5 px-20">
 
                 <OrdersBarChart />
 
+                <SalesChart />
             </div>
         </div>
     )

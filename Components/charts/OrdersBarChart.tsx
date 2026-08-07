@@ -24,7 +24,6 @@ export default function OrdersBarChart() {
   return (
     <div className="w-full bg-white rounded-xl pt-8 pb-10 shadow-xl">
 
-
       <div className="flex items-center justify-between mx-10">
         <div className="text-left space-y-2">
           <h4 className="font-bold text-xl">Merchant Orders</h4>
@@ -37,8 +36,6 @@ export default function OrdersBarChart() {
           <p className="bg-blue-600 text-white py-1 px-3 rounded-full cursor-pointer">This Week</p>
         </div>
       </div>
-
-
 
       <div className="h-80">
         <ResponsiveContainer width="100%" height="100%">
@@ -94,6 +91,7 @@ export default function OrdersBarChart() {
               contentStyle={{
                 borderRadius: "12px",
                 border: "1px solid #e2e8f0",
+                textAlign:"left",
                 boxShadow: "0 10px 25px rgba(15, 23, 42, 0.08)",
               }}
             />
