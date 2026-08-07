@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { ShimmerButton } from "../ui/shimmer-button";
 import OrdersBarChart from "../charts/OrdersBarChart";
 import SalesChart from "../charts/SalesChart";
+import TotalOrderChart from "../charts/TotalOrderChart";
 
 export default function Hero() {
     
@@ -40,6 +41,8 @@ export default function Hero() {
                 <OrdersBarChart />
 
                 <SalesChart />
+
+                <TotalOrderChart/>
             </div>
         </div>
     )

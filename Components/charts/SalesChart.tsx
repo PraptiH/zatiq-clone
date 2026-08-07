@@ -1,17 +1,7 @@
 "use client"
 
-import {
-  PieChart,
-  Pie,
-  Cell,
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-} from "recharts"
+import { PieChart, Pie, Cell, ResponsiveContainer, LineChart, Line, 
+  XAxis, YAxis, CartesianGrid, Tooltip,} from "recharts"
 
 const paymentData = [
   { name: "Online Payment", value: 39200, color: "#D3D3D0" },
@@ -37,8 +27,8 @@ export default function SalesCard() {
       </h3>
 
       {/* Donut Chart */}
-      <div className="flex justify-center">
-        <div className="relative h-45 w-full">
+      
+        <div className="relative h-45 w-full border">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -57,11 +47,11 @@ export default function SalesCard() {
             </PieChart>
           </ResponsiveContainer>
 
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center border">
             <span className="text-2xl font-bold">৳1.9M</span>
           </div>
         </div>
-      </div>
+   
 
       {/* Legend */}
       <div className="mt-8 space-y-4">
