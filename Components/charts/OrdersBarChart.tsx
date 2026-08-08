@@ -17,9 +17,9 @@ const data = [
 
 export default function OrdersBarChart() {
   return (
-    <div className="w-full bg-white rounded-xl pt-8 pb-10 shadow-xl">
+    <div className="w-full h-120 bg-white rounded-xl pt-8 pb-10 shadow-xl">
 
-      <div className="flex items-center justify-between mx-10">
+      <div className="flex items-center justify-between mx-6">
         <div className="text-left space-y-2">
           <h4 className="font-bold text-xl">Merchant Orders</h4>
           <h4 className="font-extrabold text-2xl">46,757</h4>
@@ -32,11 +32,12 @@ export default function OrdersBarChart() {
         </div>
       </div>
 
-      <div className="h-80">
+      <div className="h-80 ml-6 mr-2">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
-            margin={{ top: 25, right: 40, left: 40, bottom: 5 }}
+            barCategoryGap="20px"
+            margin={{ top: 25, right: 0, left: 0, bottom: 5 }}
           >
             <CartesianGrid
               vertical={false}
@@ -45,10 +46,12 @@ export default function OrdersBarChart() {
             />
             <XAxis
               dataKey="day"
+              ticks={["Friday", "Sunday", "Tuesday", "Thursday"]}
+              
               tickLine={false}
               axisLine={false}
               interval={0}
-              tick={({ x, y, payload }) => {
+              tick={({ x, y, payload },) => {
                 const visibleDays = ["Friday", "Sunday", "Tuesday", "Thursday"]
 
                 if (!visibleDays.includes(payload.value)) {
@@ -71,6 +74,7 @@ export default function OrdersBarChart() {
             <YAxis
               domain={[0, 8000]}
               ticks={[0, 2000, 4000, 6000, 8000]}
+              
               tickFormatter={(value) => value}
               tickLine={true}
               axisLine={false}

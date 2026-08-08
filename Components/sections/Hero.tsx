@@ -3,16 +3,19 @@ import { ShimmerButton } from "../ui/shimmer-button";
 import OrdersBarChart from "../charts/OrdersBarChart";
 import SalesChart from "../charts/SalesChart";
 import TotalOrderChart from "../charts/TotalOrderChart";
+import CustomerProof from "./CustomerProof";
+import Shop from "./Shop";
 
 export default function Hero() {
-    
+
     return (
-        <div className="max-w-1074px mx-auto text-center space-y-2 border-2 border-black px-4 py-20 text-black">
+        <div className="relative mt-16 bg-[url('/Images/background.svg')] bg-no-repeat bg-cover max-w-1074px 
+        mx-auto text-center space-y-2 px-4 pt-30 pb-20 text-black">
             <div>
                 <p className="text-blue-600 font-black text-base border border-blue-600 py-1 px-3 rounded-full inline-block">No. 1 Online business partner</p>
-                <div className="space-y-8">
-                    <div className="space-y-2 border ">
-                        <h3 className="text-5xl border mx-auto ">One Platform <br /> Thousands of Success Stories</h3>
+                <div className="space-y-8 mt-5">
+                    <div className="space-y-2">
+                        <h3 className="text-5xl mx-auto ">One Platform <br /> Thousands of Success Stories</h3>
                         <p className="font-semibold ">More than 100,000 entrepreneurs trust ZatiqEasy <br />
                             Transform your idea into an online business — fast and easy</p>
                     </div>
@@ -36,13 +39,21 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="flex gap-5 px-20">
+            <div className="grid grid-cols-3 justify-center gap-3 px-20">
 
-                <OrdersBarChart />
+                <div className="space-y-4">
+                    <OrdersBarChart />
+                    <CustomerProof />
+                </div>
 
-                <SalesChart />
+                <div>
+                    <SalesChart />
+                </div>
 
-                <TotalOrderChart/>
+                <div className="space-y-4">
+                    <TotalOrderChart />
+                    <Shop />
+                </div>
             </div>
         </div>
     )

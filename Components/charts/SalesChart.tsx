@@ -21,14 +21,14 @@ const weeklyData = [
 
 export default function SalesCard() {
   return (
-    <div className="w-full bg-white rounded-xl pt-8 pb-10 px-8 shadow-xl">
+    <div className="w-full h-160 bg-white rounded-xl pt-8 pb-10 px-8 shadow-xl">
       <h3 className="text-xl text-left font-semibold text-gray-700">
         Today's Merchant Sell
       </h3>
 
       {/* Donut Chart */}
       
-        <div className="relative h-45 w-full border">
+        <div className="relative h-30 w-full mt-5">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -47,7 +47,7 @@ export default function SalesCard() {
             </PieChart>
           </ResponsiveContainer>
 
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center border">
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
             <span className="text-2xl font-bold">৳1.9M</span>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function SalesCard() {
       </div>
 
       {/* Line Chart */}
-      <div className="mt-6 h-65 w-full">
+      <div className="mt-6 h-50 w-full">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={weeklyData}
@@ -95,6 +95,7 @@ export default function SalesCard() {
           >
             <CartesianGrid
               vertical={false}
+              horizontal={false}
               stroke="#e2e8f0"
               strokeDasharray="4 4"
             />
