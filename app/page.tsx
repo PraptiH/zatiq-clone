@@ -1,3 +1,4 @@
+import BusinessGrowthSection from "@/Components/sections/BusinessGrowthSection";
 import Hero from "@/Components/sections/Hero";
 import LandingHighlights from "@/Components/sections/LandingHighlights";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <div className="border">
       <Hero />
       <LandingHighlights/>
+      <BusinessGrowthSection/>
     </div>
   );
 }
