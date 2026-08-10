@@ -3,9 +3,9 @@ import { useRef } from "react"
 import Image from "next/image"
 import details from "@/Components/data/testomonialData"
 
-const DRIFT_DURATION = 120   // seconds for one full loop — tune to match the site
-const CLICK_SPEED = 200     // ms for the manual jump on arrow click — fast, snappy
-const RESUME_DELAY = 3000   // ms the drift stays paused after a click
+const driftDuration = 120  
+const clickSpeed = 200     
+const resumeDelay = 3000   
 
 export default function TestimonialSection() {
     const trackRef = useRef<HTMLDivElement>(null)
@@ -39,21 +39,16 @@ export default function TestimonialSection() {
         if (!track) return
 
         const step = getCardStep()
-        const currentX = getCurrentX() // reads the paused animation's current position
-
-        // Detach the animation and freeze the current position as an explicit transform,
-        // so there's nothing overriding the inline style anymore.
+        const currentX = getCurrentX() 
         track.style.animation = "none"
         track.style.transition = "none"
         track.style.transform = `translateX(${currentX}px)`
-        void track.offsetWidth // force reflow so the freeze commits before we animate
+        void track.offsetWidth 
 
         const targetX = currentX - direction * step
 
-        // Now that the transform is truly inline (no animation fighting it),
-        // the transition will actually be visible.
         requestAnimationFrame(() => {
-            track.style.transition = `transform ${CLICK_SPEED}ms cubic-bezier(0.22, 1, 0.36, 1)`
+            track.style.transition = `transform ${clickSpeed}ms cubic-bezier(0.22, 1, 0.36, 1)`
             track.style.transform = `translateX(${targetX}px)`
         })
 
@@ -63,13 +58,13 @@ export default function TestimonialSection() {
             const progress = (((-targetX) % trackWidth) + trackWidth) % trackWidth / trackWidth
 
             track.style.transform = ""
-            track.style.animation = `marquee ${DRIFT_DURATION}s linear infinite`
-            track.style.animationDelay = `-${progress * DRIFT_DURATION}s`
+            track.style.animation = `marquee ${driftDuration}s linear infinite`
+            track.style.animationDelay = `-${progress * driftDuration}s`
             track.style.animationPlayState = "paused"
-        }, CLICK_SPEED)
+        }, clickSpeed)
 
         if (resumeTimeout.current) clearTimeout(resumeTimeout.current)
-        resumeTimeout.current = setTimeout(resumeDrift, CLICK_SPEED + RESUME_DELAY)
+        resumeTimeout.current = setTimeout(resumeDrift, clickSpeed + resumeDelay)
     }
 
     const handleMouseEnter = () => {
@@ -92,7 +87,7 @@ export default function TestimonialSection() {
             <div className="relative">
                 <button
                     onClick={() => jump(-1)}
-                    className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-md hover:bg-white"
+                    className="absolute left-0 top-1/2 z-1 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-md hover:bg-white"
                     aria-label="Previous reviews"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -102,7 +97,7 @@ export default function TestimonialSection() {
 
                 <button
                     onClick={() => jump(1)}
-                    className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-md hover:bg-white"
+                    className="absolute right-0 top-1/2 z-1 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-md hover:bg-white"
                     aria-label="Next reviews"
                 >
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -118,7 +113,7 @@ export default function TestimonialSection() {
                     <div ref={trackRef}
                         className="flex w-max gap-4 cursor-pointer"
                         style={{
-                            animation: `marquee ${DRIFT_DURATION}s linear infinite`,
+                            animation: `marquee ${driftDuration}s linear infinite`,
                         }}>
                         {loopList.map((detail, index) => (
                             <div

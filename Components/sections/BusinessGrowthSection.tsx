@@ -3,7 +3,7 @@ import TestimonialSection from "./TestimonialSection";
 
 export default function BusinessGrowthSection() {
     return (
-        <div className="bg-white border px-30 py-10 space-y-30">
+        <div className="bg-white border px-30 pt-20 space-y-20">
             <OnboardingSection />
             <TestimonialSection/>
         </div>
