@@ -30,7 +30,7 @@ export default function OnboardingSection() {
                 <div className="flex flex-col items-start relative space-y-6">
                     <p className="bg-blue-500 text-sm text-white px-3 py-1 rounded-full">Step 01</p>
                     <Image className="absolute top-0 -right-6" src={topArrow} alt="" />
-                    <div className="bg-[#F8F9FF] flex flex-col justify-between gap-15 rounded-2xl p-5">
+                    <div className="bg-[#F8F9FF] h-45 flex flex-col justify-between rounded-2xl p-5">
                         <div className="flex items-center justify-between">
                             <h3 className="text-2xl font-semibold">Create an Account</h3>
                             <Image src={account} alt='' />
@@ -42,7 +42,7 @@ export default function OnboardingSection() {
                 <div className="flex flex-col items-start relative space-y-6">
                     <p className="bg-blue-500 text-sm text-white px-3 py-1 rounded-full">Step 02</p>
                     <Image className="absolute -bottom-14 -right-16 rotate-8" src={bottomArrow} alt=""/>
-                    <div className="bg-[#F8F9FF] flex flex-col justify-between gap-10 rounded-2xl p-5">
+                    <div className="bg-[#F8F9FF] h-45 flex flex-col justify-between rounded-2xl p-5">
                         <div className="flex items-center justify-between">
                             <h3 className="text-2xl font-semibold">Set Up Your Store</h3>
                             <Image src={store} alt='' />
@@ -53,7 +53,7 @@ export default function OnboardingSection() {
 
                 <div className="flex flex-col items-start relative space-y-6">
                     <p className="bg-blue-500 text-sm text-white px-3 py-1 rounded-full">Step 03</p>
-                    <div className="bg-[#F8F9FF] flex flex-col justify-between gap-10 rounded-2xl p-5">
+                    <div className="bg-[#F8F9FF] h-45 flex flex-col justify-between gap-10 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
                         <h3 className="text-2xl font-semibold">Start Your Sales</h3>
                         <Image src={sales} alt='' />

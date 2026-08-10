@@ -18,7 +18,7 @@ export default function StoreShowcase() {
         <div className="py-10 space-y-5">
             <h1 className="font-bold text-4xl text-center">100,000+ Stores Built — <span className="font-light">Yours Could Be Next</span></h1>
 
-            <div className="px-">
+            <div>
                 <Swiper
                     modules={[Autoplay]}
                     loop={true}
