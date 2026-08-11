@@ -25,7 +25,7 @@ type Testimonial = {
     name: string
     role: string
     message: string
-    avatar: string | StaticImageData
+    avatar: StaticImageData
 }
 const testimonialData: Testimonial[] = [
     {

@@ -1,5 +1,6 @@
 import AppDownloadSection from "./AppDownloadSection";
 import FAQSection from "./FAQSection";
+import TeamSection from "./TeamSection";
 
 export default function CompanySection() {
     return (
@@ -7,6 +8,8 @@ export default function CompanySection() {
             <AppDownloadSection />
 
             <FAQSection/>
+
+            <TeamSection/>
         </div>
     )
 }
