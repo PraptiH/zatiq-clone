@@ -190,6 +190,20 @@ body {
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(calc(-1 * var(--marquee-distance, 50%)));
   }
 }
+
+@keyframes marqueeReverse {
+  from {
+    transform: translateX(calc(-1 * var(--marquee-distance, 50%)));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+
+

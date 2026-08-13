@@ -1,15 +1,51 @@
 "use client"
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import Image from "next/image"
 import details from "@/Components/data/testomonialData"
 
-const driftDuration = 120  
-const clickSpeed = 200     
-const resumeDelay = 3000   
+const driftDuration = 120
+const clickSpeed = 200
+const resumeDelay = 3000
+
+function useMarqueeDistance(trackRef: React.RefObject<HTMLDivElement | null>, itemCount: number) {
+    useEffect(() => {
+        const track = trackRef.current
+        if (!track) return
+
+        const measure = () => {
+            const items = track.children
+            if (items.length < itemCount + 1) return
+
+            const first = items[0] as HTMLElement
+            const secondSetStart = items[itemCount] as HTMLElement
+            const distance =
+                secondSetStart.getBoundingClientRect().left - first.getBoundingClientRect().left
+
+            if (distance > 0) {
+                track.style.setProperty("--marquee-distance", `${distance}px`)
+            }
+        }
+
+        measure()
+
+        const resizeObserver = new ResizeObserver(measure)
+        resizeObserver.observe(track)
+
+        const imgs = track.querySelectorAll("img")
+        imgs.forEach((img) => img.addEventListener("load", measure))
+
+        return () => {
+            resizeObserver.disconnect()
+            imgs.forEach((img) => img.removeEventListener("load", measure))
+        }
+    }, [trackRef, itemCount])
+}
 
 export default function TestimonialSection() {
     const trackRef = useRef<HTMLDivElement>(null)
     const resumeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+    useMarqueeDistance(trackRef, details.length)
 
     const getCardStep = () => {
         const track = trackRef.current
@@ -39,11 +75,11 @@ export default function TestimonialSection() {
         if (!track) return
 
         const step = getCardStep()
-        const currentX = getCurrentX() 
+        const currentX = getCurrentX()
         track.style.animation = "none"
         track.style.transition = "none"
         track.style.transform = `translateX(${currentX}px)`
-        void track.offsetWidth 
+        void track.offsetWidth
 
         const targetX = currentX - direction * step
 

@@ -3,6 +3,7 @@ import CompanySection from "@/Components/sections/CompanySection";
 import GlobalImpactSection from "@/Components/sections/GlobalImpactSection";
 import Hero from "@/Components/sections/Hero";
 import LandingHighlights from "@/Components/sections/LandingHighlights";
+import PartnerSection from "@/Components/sections/PartnerSection";
 import PricingSection from "@/Components/sections/PricingSection";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <PricingSection/>
       <CompanySection/>
       <GlobalImpactSection/>
+      <PartnerSection/>
     </div>
   );
 }
