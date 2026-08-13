@@ -1,9 +1,9 @@
 'use client'
 
 import Lottie from 'lottie-react'
-import animationData from '@/public/Animations/shipping-made-simple.json'
+import animationData from '@/public/Animations/inventory-order-management.json'
 
-export default function ShippingAnimation() {
+export default function InventoryAnimation() {
     return (
         <div className="rounded-lg overflow-hidden w-73.75 h-68">
             <Lottie

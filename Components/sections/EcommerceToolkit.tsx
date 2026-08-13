@@ -1,3 +1,4 @@
+import InventoryAnimation from "./InventoryAnimation";
 import ShippingAnimation from "./ShippingAnimation";
 
 export default function EcommerceToolkit() {
@@ -23,7 +24,17 @@ export default function EcommerceToolkit() {
                     </div>
                 </div>
 
-                
+                <div className="rounded-lg bg-white p-4 shadow-xl">
+
+                    <div>
+                        <InventoryAnimation />
+                    </div>
+
+                    <div>
+                        <h3 className="font-semibold text-lg">Inventory & Order Management</h3>
+                        <p className="text-sm text-gray-600">Forget about stock shortages or overselling. Track inventory in real-time, low-stock view.</p>
+                    </div>
+                </div>
             </div>
         </div>
     )
