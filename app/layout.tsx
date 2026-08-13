@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/Components/layout/Navbar";
 import  { Inter, Noto_Sans_Bengali } from 'next/font/google'
+import Footer from "@/Components/layout/Footer";
 
 
 const standerd = Inter({
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className={`${standerd.variable} ${notoBengali.variable}`}>
         <Navbar />
         {children}
+        <Footer/>
       </body>
     </html>
   );
