@@ -37,7 +37,7 @@ export default function StoreShowcase() {
                 >
                     {logos.map((logo, index) => (
                         <SwiperSlide key={index}>
-                            <div className="flex items-center justify-center w-40 h-25 mx-auto rounded-md bg-white p-6 shadow-md">
+                            <div className="flex items-center justify-center w-40 h-25 mx-auto rounded-md bg-white p-6 shadow-md -translate-y-0.5">
                                 <Image
                                     src={logo}
                                     width={100}
