@@ -120,7 +120,7 @@ export default function SalesCard() {
             />
 
             <Tooltip
-              formatter={(value: number) => [`৳${value}.0M`, "Amount"]}
+              formatter={(value) => [`৳${value}.0M`, "Amount"]}
               contentStyle={{
                 borderRadius: "12px",
                 border: "1px solid #e2e8f0",
