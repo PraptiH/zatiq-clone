@@ -1,5 +1,6 @@
 import BusinessGrowthSection from "@/Components/sections/BusinessGrowthSection";
 import CompanySection from "@/Components/sections/CompanySection";
+import Features from "@/Components/sections/Features";
 import GlobalImpactSection from "@/Components/sections/GlobalImpactSection";
 import Hero from "@/Components/sections/Hero";
 import LandingHighlights from "@/Components/sections/LandingHighlights";
@@ -13,6 +14,7 @@ export default function Home() {
       <LandingHighlights/>
       <BusinessGrowthSection/>
       <PricingSection/>
+      <Features/>
       <CompanySection/>
       <GlobalImpactSection/>
       <PartnerSection/>

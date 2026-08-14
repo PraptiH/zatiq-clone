@@ -8,7 +8,7 @@ export default function CustomerProof() {
     return (
         <div className="bg-white rounded-xl p-5 space-y-1 shadow-sm">
 
-            <div className="flex items-center relative -space-x-2">
+            <div className="flex items-center z-0 relative -space-x-2">
                 <div className='h-10 w-10 rounded-full overflow-hidden border-2 border-white z-10'>
                     <Image
                         alt=""
