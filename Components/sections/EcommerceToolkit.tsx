@@ -1,5 +1,6 @@
 import AnalyticAnimation from "./AnalyticAnimation";
 import InventoryAnimation from "./InventoryAnimation";
+import ScreenAnimation from "./ScreenAnimation";
 import ShippingAnimation from "./ShippingAnimation";
 
 export default function EcommerceToolkit() {
@@ -12,7 +13,9 @@ export default function EcommerceToolkit() {
                 <p className="text-center text-gray-600 font-light pt-5 pb-10">Smart tools that make your business smarter</p>
             </div>
 
-            <div className="flex justify-center gap-4 ">
+           <div className="space-y-5">
+
+             <div className="flex justify-center gap-4 ">
 
                 <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white p-4 shadow-xl">
 
@@ -49,6 +52,22 @@ export default function EcommerceToolkit() {
                     </div>
                 </div>
             </div>
+
+            <div className="flex justify-center gap-4 ">
+
+                <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white p-4 shadow-xl">
+
+                    <ScreenAnimation />
+
+                    <div>
+                        <h3 className="font-semibold text-lg">Perfect on every screen</h3>
+                        <p className="text-sm text-gray-600">Your store looks stunning on any device desktop, tablet, or mobile. Enjoy a smooth experience.</p>
+                    </div>
+                </div>
+
+               
+            </div>
+           </div>
         </div>
     )
 }
