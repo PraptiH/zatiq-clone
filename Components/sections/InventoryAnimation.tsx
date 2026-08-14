@@ -5,12 +5,12 @@ import animationData from '@/public/Animations/inventory-order-management.json'
 
 export default function InventoryAnimation() {
     return (
-        <div className="rounded-lg overflow-hidden w-73.75 h-68">
+        <div className="rounded-lg h-68 overflow-hidden">
             <Lottie
                 animationData={animationData}
                 loop={true}
                 autoplay={true}
-                className="w-full h-full"
+                className="w-full"
             />
         </div>
     )
