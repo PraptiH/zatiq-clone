@@ -208,7 +208,7 @@ export default function TestimonialSection() {
                         {loopList.map((detail, index) => (
                             <div
                                 key={index}
-                                className="mx-auto flex h-full w-65 sm:w-80 md:w-93.75 flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:bg-gray-100 hover:shadow-md"
+                                className="mx-auto flex w-65 sm:w-80 md:w-93.75 flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:bg-gray-100 hover:shadow-md"
                             >
                                 <p className="line-clamp-5 text-sm leading-6 text-gray-700">
                                     {detail.message}
