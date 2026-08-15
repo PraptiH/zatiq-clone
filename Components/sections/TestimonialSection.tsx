@@ -1,11 +1,13 @@
 "use client"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import details from "@/Components/data/testomonialData"
 
 const driftDuration = 120
 const clickSpeed = 200
 const resumeDelay = 3000
+
+const desktopQuery = "(min-width: 1024px)"
 
 function useMarqueeDistance(trackRef: React.RefObject<HTMLDivElement | null>, itemCount: number) {
     useEffect(() => {
@@ -41,11 +43,54 @@ function useMarqueeDistance(trackRef: React.RefObject<HTMLDivElement | null>, it
     }, [trackRef, itemCount])
 }
 
+function useIsDesktop() {
+    const [isDesktop, setIsDesktop] = useState(false)
+
+    useEffect(() => {
+        const mq = window.matchMedia(desktopQuery)
+        const update = () => setIsDesktop(mq.matches)
+
+        update()
+        mq.addEventListener("change", update)
+        return () => mq.removeEventListener("change", update)
+    }, [])
+
+    return isDesktop
+}
+
 export default function TestimonialSection() {
     const trackRef = useRef<HTMLDivElement>(null)
     const resumeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
+    const isDesktop = useIsDesktop()
+    const isDesktopRef = useRef(isDesktop)
+
+    useEffect(() => {
+        isDesktopRef.current = isDesktop
+    }, [isDesktop])
 
     useMarqueeDistance(trackRef, details.length)
+
+    // Whenever we cross the desktop/mobile boundary, reset the track so
+    // stale inline animation/transform styles from the other mode don't linger.
+    useEffect(() => {
+        const track = trackRef.current
+        if (!track) return
+
+        if (resumeTimeout.current) {
+            clearTimeout(resumeTimeout.current)
+            resumeTimeout.current = null
+        }
+
+        track.style.transition = "none"
+        track.style.transform = ""
+
+        if (isDesktop) {
+            track.style.animation = `marquee ${driftDuration}s linear infinite`
+            track.style.animationPlayState = "running"
+        } else {
+            track.style.animation = "none"
+        }
+    }, [isDesktop])
 
     const getCardStep = () => {
         const track = trackRef.current
@@ -63,10 +108,12 @@ export default function TestimonialSection() {
     }
 
     const pauseDrift = () => {
+        if (!isDesktopRef.current) return
         if (trackRef.current) trackRef.current.style.animationPlayState = "paused"
     }
 
     const resumeDrift = () => {
+        if (!isDesktopRef.current) return
         if (trackRef.current) trackRef.current.style.animationPlayState = "running"
     }
 
@@ -88,8 +135,14 @@ export default function TestimonialSection() {
             track.style.transform = `translateX(${targetX}px)`
         })
 
+        if (resumeTimeout.current) clearTimeout(resumeTimeout.current)
+
         window.setTimeout(() => {
             track.style.transition = ""
+
+            // Mobile/tablet: no drift to resume — just leave the track where it landed.
+            if (!isDesktopRef.current) return
+
             const trackWidth = track.scrollWidth / 2
             const progress = (((-targetX) % trackWidth) + trackWidth) % trackWidth / trackWidth
 
@@ -99,8 +152,9 @@ export default function TestimonialSection() {
             track.style.animationPlayState = "paused"
         }, clickSpeed)
 
-        if (resumeTimeout.current) clearTimeout(resumeTimeout.current)
-        resumeTimeout.current = setTimeout(resumeDrift, clickSpeed + resumeDelay)
+        if (isDesktopRef.current) {
+            resumeTimeout.current = setTimeout(resumeDrift, clickSpeed + resumeDelay)
+        }
     }
 
     const handleMouseEnter = () => {
@@ -115,8 +169,8 @@ export default function TestimonialSection() {
     const loopList = [...details, ...details]
 
     return (
-        <section className="px-4 py-20 space-y-12 md:px-10">
-            <h1 className="text-center text-5xl font-semibold">
+        <section className="py-12 lg:py-15 xl:py-20 space-y-12">
+            <h1 className="text-center font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
                 How we transformed their journey
             </h1>
 
@@ -142,19 +196,19 @@ export default function TestimonialSection() {
                 </button>
 
                 <div
-                    className="overflow-hidden mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] "
+                    className="overflow-hidden lg:mask-[linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] "
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                 >
                     <div ref={trackRef}
                         className="flex w-max gap-4 cursor-pointer"
                         style={{
-                            animation: `marquee ${driftDuration}s linear infinite`,
+                            animation: isDesktop ? `marquee ${driftDuration}s linear infinite` : "none",
                         }}>
                         {loopList.map((detail, index) => (
                             <div
                                 key={index}
-                                className="mx-auto flex h-50 w-[85vw] shrink-0 flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:bg-gray-100 hover:shadow-md sm:w-80 lg:w-96"
+                                className="mx-auto flex h-full w-65 sm:w-80 md:w-93.75 flex-col justify-between rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:bg-gray-100 hover:shadow-md"
                             >
                                 <p className="line-clamp-5 text-sm leading-6 text-gray-700">
                                     {detail.message}
