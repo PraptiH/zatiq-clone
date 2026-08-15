@@ -60,29 +60,6 @@ export default function PartnerSection() {
 
   const paymentSlides = [ ...payments, ...payments]
 
-  // const trackRef = useRef<HTMLDivElement>(null)
-  // const resumeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
-  // useMarqueeDistance(trackRef, courierSlides.length)
-  // useMarqueeDistance(trackRef, paymentSlides.length)
-
-
-  // const pauseDrift = () => {
-  //   if (trackRef.current) trackRef.current.style.animationPlayState = "paused"
-  // }
-
-  // const resumeDrift = () => {
-  //   if (trackRef.current) trackRef.current.style.animationPlayState = "running"
-  // }
-
-  // const handleMouseEnter = () => {
-  //   if (resumeTimeout.current) clearTimeout(resumeTimeout.current)
-  //   pauseDrift()
-  // }
-
-  // const handleMouseLeave = () => {
-  //   resumeDrift()
-  // }
-
   const courierTrackRef = useRef<HTMLDivElement | null>(null)
   const paymentTrackRef = useRef<HTMLDivElement | null>(null)
 
@@ -105,8 +82,8 @@ export default function PartnerSection() {
 
   return (
 
-    <div className="bg-white py-20 mx-auto max-w-7xl px-4 md:px-10">
-      <h2 className="mb-14 text-center text-4xl font-semibold text-gray-900 md:text-5xl">
+    <div className="bg-linear-t-b from-background py-20 mx-auto max-w-7xl px-0 md:px-10">
+      <h2 className="mb-14 text-center text-xl sm:2xl md:3xl lg:4xl xl:text-5xl px-4 font-semibold text-gray-900">
         In partnership with our dedicated logistics and payment partners
       </h2>
 

@@ -5,7 +5,7 @@ import StatsCard from "./StatsCard"
 export default function GlobalImpactSection() {
   return (
     <div className="bg-white py-20 text-center space-y-12">
-      <h1 className="text-5xl font-semibold">
+      <h1 className="text-xl sm:2xl md:3xl lg:4xl xl:text-5xl px-4 font-semibold">
         Empowering entrepreneurs around the world
       </h1>
 
