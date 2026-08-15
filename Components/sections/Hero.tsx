@@ -5,6 +5,7 @@ import SalesChart from "../charts/SalesChart";
 import TotalOrderChart from "../charts/TotalOrderChart";
 import CustomerProof from "./CustomerProof";
 import Shop from "./Shop";
+import FloatingShimmerButton from "../ui/FloatingShimmerButton";
 
 export default function Hero() {
 
@@ -59,6 +60,8 @@ export default function Hero() {
                     <Shop />
                 </div>
             </div>
+
+            <FloatingShimmerButton/>
         </div>
     )
 }
