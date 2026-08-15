@@ -49,8 +49,8 @@ function AccordionTrigger({
         {...props}
       >
         {children}
-        <Plus data-slot="accordion-trigger-icon" className="pointer-events-none rounded-full border border-gray-300 min-w-8 min-h-8 shrink-0 group-aria-expanded/accordion-trigger:hidden" />
-        <Minus data-slot="accordion-trigger-icon" className="pointer-events-none rounded-full border border-blue-200 bg-blue-100 text-blue-600 min-w-8 min-h-8  hidden shrink-0 group-aria-expanded/accordion-trigger:inline" />
+        <Plus data-slot="accordion-trigger-icon" className="pointer-events-none rounded-full border border-gray-300 min-w-8 min-h-8 text-2xl shrink-0 group-aria-expanded/accordion-trigger:hidden" />
+        <Minus data-slot="accordion-trigger-icon" className="pointer-events-none rounded-full border border-blue-200 bg-blue-100 text-blue-600 min-w-8 min-h-8 text-2xl hidden shrink-0 group-aria-expanded/accordion-trigger:inline" />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
   )

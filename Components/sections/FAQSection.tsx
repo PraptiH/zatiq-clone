@@ -38,21 +38,21 @@ export default function FAQSection() {
 
     return (
         <div>
-            <h1 className="font-semibold text-5xl mb-8 text-center">Frequently Asked Questions</h1>
+            <h1 className="font-semibold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 text-center">Frequently Asked Questions</h1>
 
             <Accordion type="single"
                 collapsible
-                defaultValue="item-1" className="w-full max-w-5xl rounded-2xl mx-auto p-4 bg-[#fafbfc] shadow-sm mb-10">
+                defaultValue="item-1" className="w-full max-w-5xl rounded-2xl mx-auto p-2 md:p-6 bg-[#fafbfc] shadow-sm mb-10">
                 {items.map((item) => (
                     <AccordionItem key={item.value} value={item.value}
-                        className="border-b last:border-b-0 px-8">
-                        <AccordionTrigger className="py-5 font-[550] text-xl hover:no-underline cursor-pointer">{item.trigger}</AccordionTrigger>
-                        <AccordionContent className="pb-6 text-base leading-5 text-gray-500">{item.content}</AccordionContent>
+                        className="border-b last:border-b-0 px-4 ">
+                        <AccordionTrigger className="font-medium text-black sm:text-lg md:text-xl hover:no-underline cursor-pointer">{item.trigger}</AccordionTrigger>
+                        <AccordionContent className="px-2 md:px-4 pb-6 text-sm sm:text-base md:text-lg border-gray-200 leading-5 text-gray-500">{item.content}</AccordionContent>
                     </AccordionItem>
                 ))}
             </Accordion>
 
-            <p className="text-center text-base text-gray-500">For support or inquiries, <span className="text-blue-600 underline">contact us</span> directly.</p>
+            <p className="text-center text-base text-gray-500 mt-10">For support or inquiries, <span className="text-blue-600 underline">contact us</span> directly.</p>
         </div>
 
     )
