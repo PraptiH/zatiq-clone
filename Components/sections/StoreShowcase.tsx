@@ -15,8 +15,8 @@ export default function StoreShowcase() {
 
 
     return (
-        <div className="py-10 space-y-5">
-            <h1 className="font-bold text-4xl text-center">100,000+ Stores Built — <span className="font-light">Yours Could Be Next</span></h1>
+        <div className="px-4 py-10 space-y-8">
+            <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center">100,000+ Stores Built <br className="block md:hidden"/>— <span className="font-light">Yours Could Be Next</span></h1>
 
             <div>
                 <Swiper
@@ -30,7 +30,7 @@ export default function StoreShowcase() {
                     allowTouchMove={false}
                     spaceBetween={24}
                     breakpoints={{
-                        320: { slidesPerView: 2 },
+                        320: { slidesPerView: 1 },
                         640: { slidesPerView: 3 },
                         1024: { slidesPerView: 5 },
                     }}

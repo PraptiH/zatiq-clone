@@ -21,14 +21,14 @@ const weeklyData = [
 
 export default function SalesCard() {
   return (
-    <div className="w-full h-160 bg-white rounded-xl pt-8 pb-10 px-8 shadow-xl">
-      <h3 className="text-xl text-left font-semibold text-gray-700">
+    <div className="h-full flex flex-col bg-white rounded-xl p-4 md:p-6 shadow-sm">
+      <h3 className="text-lg text-left font-semibold text-gray-800 mb-4">
         Today's Merchant Sell
       </h3>
 
       {/* Donut Chart */}
       
-        <div className="relative h-30 w-full mt-5">
+        <div className="relative mx-auto w-32 h-32 mb-6">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
@@ -54,35 +54,35 @@ export default function SalesCard() {
    
 
       {/* Legend */}
-      <div className="mt-8 space-y-4">
-        <div className="flex items-center justify-between text-[15px]">
+      <div className="mt-4 space-y-4">
+        <div className="flex items-center justify-between">
           <div className="flex items-center gap-3 text-slate-800">
-            <span className="h-3 w-3 rounded-full bg-blue-500" />
+            <span className="h-2 w-2 mr-2 rounded-full bg-blue-500" />
             Online Payment
           </div>
-          <span className="font-semibold text-slate-900">৳39.2K</span>
+          <span className="font-medium text-slate-900">৳39.2K</span>
         </div>
 
-        <div className="flex items-center justify-between text-[15px]">
+        <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3 text-slate-800">
-            <span className="h-3 w-3 rounded-full bg-emerald-500" />
+            <span className="h-2 w-2 mr-2 rounded-full bg-emerald-500" />
             Cash on Delivery
           </div>
-          <span className="font-semibold text-slate-900">৳1.9M</span>
+          <span className="font-medium text-slate-900">৳1.9M</span>
         </div>
       </div>
 
-      <div className="my-8 border-t border-slate-200" />
+      <div className="mb-4 border-t border-slate-200" />
 
    
-      <div className="flex items-center justify-between">
-        <h4 className="text-xl font-semibold text-gray-700">
+      <div className="flex items-center justify-between mt-">
+        <h4 className="font-semibold text-gray-800 mb-4">
           Weekly Merchant Sales
         </h4>
 
         <div className="flex items-center gap-2 text-blue-600">
-          <span className="h-3 w-3 rounded-full bg-blue-500" />
-          <span className="font-semibold">৳137.8M</span>
+          <span className="h-2 w-2 rounded-full bg-blue-500" />
+          <span className="text-sm">৳137.8M</span>
         </div>
       </div>
 
@@ -92,6 +92,7 @@ export default function SalesCard() {
           <LineChart
             data={weeklyData}
             margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
+            className="max-w-166.25 max-h-48"
           >
             <CartesianGrid
               vertical={false}

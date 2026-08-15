@@ -9,7 +9,7 @@ import PricingSection from "@/Components/sections/PricingSection";
 
 export default function Home() {
   return (
-    <div className="border">
+    <div>
       <Hero />
       <LandingHighlights/>
       <BusinessGrowthSection/>

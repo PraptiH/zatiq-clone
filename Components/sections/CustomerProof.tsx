@@ -49,7 +49,7 @@ export default function CustomerProof() {
                     />
                 </div>
 
-                <p className='ml-4 px-3 py-1 text-sm text-gray-600 font-light border border-gray-300 rounded-full bg-gray-100 relative -left-5 z-10'>50K Happy customers</p>
+                <p className='ml-4 px-3 py-1 text-sm text-gray-600 font-light border w-fit border-gray-300 rounded-full bg-gray-100 relative -left-5 z-10'>50K Happy customers</p>
 
 
 

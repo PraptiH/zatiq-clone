@@ -1,102 +1,171 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import {
-  BarChart, Bar, XAxis, YAxis, CartesianGrid,
-  Tooltip, ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
 } from "recharts"
 
 const data = [
-  { day: "Friday", value: 7088 },
-  { day: "Saturday", value: 7115 },
-  { day: "Sunday", value: 7126 },
-  { day: "Monday", value: 3499 },
-  { day: "Tuesday", value: 6895 },
-  { day: "Wednesday", value: 6909 },
-  { day: "Thursday", value: 7169 },
-];
+  { day: "Sunday", value: 6700 },
+  { day: "Monday", value: 6600 },
+  { day: "Tuesday", value: 7100 },
+  { day: "Wednesday", value: 7100 },
+  { day: "Thursday", value: 6800 },
+  { day: "Friday", value: 6300 },
+  { day: "Saturday", value: 3600 },
+]
+
+const desktopDays = [
+  "Sunday",
+  "Tuesday",
+  "Thursday",
+  "Saturday",
+]
+
+const tabletDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+]
 
 export default function OrdersBarChart() {
-  return (
-    <div className="w-full h-120 bg-white rounded-xl pt-8 pb-10 shadow-xl">
+  const [visibleDays, setVisibleDays] = useState(desktopDays)
 
-      <div className="flex items-center justify-between mx-6">
-        <div className="text-left space-y-2">
-          <h4 className="font-semibold text-gray-900 text-lg">Merchant Orders</h4>
-          <h4 className="font-bold text-3xl">46,757</h4>
-          <p className="text-gray-600 font-semibold">Weekly Orders</p>
+  useEffect(() => {
+
+    const handleResize = () => {
+      const width = window.innerWidth
+
+      // Tablet
+      if (width === 640 ) {
+         setVisibleDays(tabletDays)
+        
+      }
+      // Mobile + Desktop
+      else {
+       setVisibleDays(desktopDays)
+      }
+    }
+
+    handleResize()
+
+    window.addEventListener("resize", handleResize)
+
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
+
+ 
+
+  return (
+    <div
+      className="w-full h-full grow rounded-xl bg-white p-4 shadow-sm sm:p-6">
+
+      <div className="flex xs:flex-col flex-row xs:items-start items-center justify-between gap-4">
+
+        <div className="space-y-1 text-left">
+          <h4 className="text-lg font-semibold text-gray-900">Merchant Orders</h4>
+
+          <h4 className="text-3xl font-bold leading-tight text-gray-900">43,985</h4>
+
+          <p className="text-sm font-medium text-gray-600">Weekly Orders</p>
         </div>
 
-        <div className="flex gap-2">
-          <p className="text-gray-500 text-sm border border-gray-200 py-1 px-3 rounded-full cursor-pointer">Today</p>
-          <p className="bg-blue-600 text-white text-sm py-1 px-3 rounded-full cursor-pointer">This Week</p>
+        {/* Buttons */}
+        <div className="flex items-center gap-2">
+          <button className="rounded-full border border-gray-200 bg-white px-4 py-1.5 text-sm text-gray-500 transition hover:bg-gray-50">
+            Today
+          </button>
+
+          <button className="rounded-full bg-blue-600 px-4 py-1.5 text-sm text-white text-nowrap transition hover:bg-blue-700">
+            This Week
+          </button>
         </div>
       </div>
 
-      <div className="h-80 ml-6 mr-2">
+      {/* Chart */}
+      <div className="mt-6 h-70 w-full sm:mt-6 sm:h-65 md:h-72.5">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart
             data={data}
-            barCategoryGap="20px"
-            margin={{ top: 25, right: 0, left: 0, bottom: 5 }}
+            margin={{
+              top: 10,
+              right: 0,
+              left: 0,
+              bottom: 0,
+            }}
+            barCategoryGap="12%"
           >
             <CartesianGrid
               vertical={false}
               stroke="#d1d5db"
-              strokeDasharray="4 4"
+              strokeDasharray="3 4"
             />
+
             <XAxis
               dataKey="day"
-              ticks={["Friday", "Sunday", "Tuesday", "Thursday"]}
-              
+              ticks={visibleDays}
               tickLine={false}
-              axisLine={false}
+              axisLine={{
+                stroke: "#64748b",
+                strokeWidth: 1,
+              }}
               interval={0}
-              tick={({ x, y, payload },) => {
-                const visibleDays = ["Friday", "Sunday", "Tuesday", "Thursday"]
-
-                if (!visibleDays.includes(payload.value)) {
-                  return null
-                }
-
-                return (
-                  <text
-                    x={x}
-                    y={Number(y) + 8}
-                    textAnchor="middle"
-                    fill="#475569"
-                    fontSize={13}
-                  >
-                    {payload.value}
-                  </text>
-                )
+              tick={{
+                fill: "#475569",
+                fontSize: 10,
               }}
             />
+
             <YAxis
               domain={[0, 8000]}
-              ticks={[0, 2000, 4000, 6000, 8000]}
-              
-              tickFormatter={(value) => value}
-              tickLine={true}
+              ticks={[
+                0,
+                2000,
+                4000,
+                6000,
+                8000,
+              ]}
+              tickLine={false}
               axisLine={false}
-              tick={{ fill: "#64748b", fontSize: 13 }}
+              tick={{
+                fill: "#475569",
+                fontSize: 13,
+              }}
               width={55}
             />
+
             <Tooltip
               formatter={(value) => [
                 value,
                 "Orders",
               ]}
-
               contentStyle={{
                 borderRadius: "12px",
                 border: "1px solid #e2e8f0",
+                backgroundColor: "#ffffff",
                 textAlign: "left",
-                boxShadow: "0 10px 25px rgba(15, 23, 42, 0.08)",
+                boxShadow:
+                  "0 10px 25px rgba(15, 23, 42, 0.08)",
               }}
             />
 
-
-            <Bar dataKey="value" fill="#2563eb" radius={[10, 10, 0, 0]} barSize={40} />
+            <Bar
+              dataKey="value"
+              fill="#2f6df6"
+              radius={[7, 7, 0, 0]}
+            />
           </BarChart>
         </ResponsiveContainer>
       </div>

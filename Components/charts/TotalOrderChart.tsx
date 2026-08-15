@@ -10,20 +10,22 @@ export default function TotalOrderChart({ isAnimationActive = true }: { isAnimat
     ]
 
     return (
-        <div className="w-full h-125 bg-white rounded-xl pt-8 pb-10 px-8 shadow-xl">
-            <div className="space-y-2 font-[550] text-base">
-                <div className="flex items-center gap-1">
+        <div className="w-full flex flex-col grow bg-white rounded-xl p-4 md:p-6 md:max-w-md shadow-md">
+
+            <div className="flex flex-col flex-wrap gap-2">
+                <div className="flex items-center gap-1 mb-2">
                     <span className="h-3 w-3 rounded-full bg-blue-500" />
-                    <p>Online Payment ৳ 163.9M - 1.9%</p>
+                    <p className="font-medium text-sm">Online Payment ৳ 163.9M - 1.9%</p>
                 </div>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1 mb-2">
                     <span className="h-3 w-3 rounded-full bg-emerald-500" />
-                    <p> Cash on Delivery ৳ 8692.4M - 98.1%</p>
+                    <p className="font-medium text-sm">Cash on Delivery ৳ 8692.4M - 98.1%</p>
                 </div>
             </div>
 
-            <div className="h-80 w-full relative">
-                <ResponsiveContainer width="100%" height="100%">
+            <div className="relative">
+                <div className="h-80 w-full flex flex-col items-center justify-center grow relative">
+                    <ResponsiveContainer width="100%" height="100%">
                     <PieChart >
                         <Pie
                             data={data}
@@ -39,6 +41,7 @@ export default function TotalOrderChart({ isAnimationActive = true }: { isAnimat
 
                     </PieChart>
                 </ResponsiveContainer>
+                </div>
 
                 <div className="pointer-events-none absolute left-0 right-0 bottom-10">
                     <p className="font-semibold text-3xl">৳ 8863.8M</p>
