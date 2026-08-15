@@ -2,30 +2,30 @@ import { ArrowRight } from "lucide-react";
 
 export default function PricingSection() {
     return (
-        <div className="bg-[#f6f8fc] px-30 py-20">
+        <div className="bg-[#f6f8fc] px-4 sm:px-6 md:px-10 lg:px-16 xl:px-30 py-12 lg:py-15 xl:py-20">
             
             <div className="text-center space-y-4">
-                <p className="font-semibold text-sm tracking-[0.2em] text-blue-600">PRICING</p>
-                <h3 className="text-5xl text-gray-900 font-semibold">Choose The Plan To Grow Your Business</h3>
-                <p className="text-[#6b7280] text-sm">No hidden fees. Flexible pricing. Try any plan free for 3 days.</p>
+                <p className="font-semibold text-xs sm:text-sm tracking-[0.2em] text-blue-600">PRICING</p>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-900 font-semibold">Choose The Plan To Grow Your Business</h3>
+                <p className="text-[#6b7280] text-sm sm:text-base md:text-lg max-w-2xl mx-auto">No hidden fees. Flexible pricing. Try any plan free for 3 days.</p>
             </div>
 
             
             <div className="flex justify-center pt-10">
                 <div className="inline-flex items-center gap-1 bg-white/80 rounded-full border border-blue-100 px-2 py-1.5 shadow-sm backdrop-blur">
 
-                    <div className="bg-blue-600 font-semibold text-sm text-white rounded-full px-4 py-2.5 cursor-pointer shadow-[0_8px_20px_-6px_rgba(37,99,235,0.6)]">
+                    <div className="bg-blue-600 font-semibold text-sm text-white rounded-full px-4 sm:px-6 py-2.5 cursor-pointer shadow-[0_8px_20px_-6px_rgba(37,99,235,0.6)]">
                         <p>Monthly</p>
                     </div>
 
-                    <div className="flex items-center gap-2 rounded-full font-semibold text-sm px-4 py-2.5 text-gray-500 hover:text-gray-900 cursor-pointer">
+                    <div className="flex items-center gap-2 rounded-full font-semibold text-sm px-4 sm:px-6 py-2.5 text-gray-500 hover:text-gray-900 cursor-pointer">
                         <p>6 Months</p>
-                        <p className="rounded-full px-2 py-0.5 font-bold text-[10px] tracking-wide bg-blue-100 text-blue-600">SAVE 10%</p>
+                        <p className="hidden sm:inline rounded-full px-2 py-0.5 font-bold text-[10px] tracking-wide bg-blue-100 text-blue-600">SAVE 10%</p>
                     </div>
 
-                    <div className="flex items-center gap-2 rounded-full font-semibold text-sm px-4 py-2.5 text-gray-500 hover:text-gray-900 cursor-pointer">
+                    <div className="flex items-center gap-2 rounded-full font-semibold text-sm px-4 sm:px-6 py-2.5 text-gray-500 hover:text-gray-900 cursor-pointer">
                         <p>Yearly</p>
-                        <p className="rounded-full px-2 py-0.5 font-bold text-[10px] tracking-wide bg-blue-100 text-blue-600">SAVE 25%</p>
+                        <p className="hidden sm:inline rounded-full px-2 py-0.5 font-bold text-[10px] tracking-wide bg-blue-100 text-blue-600">SAVE 25%</p>
                     </div>
 
 
@@ -33,7 +33,7 @@ export default function PricingSection() {
             </div>
 
            
-            <div className="grid grid-cols-4 items-stretch gap-6 pt-12 w-full max-w-7xl">
+            <div className="grid sm:grid-cols-2 xl:grid-cols-4 items-stretch gap-6 pt-12 w-full max-w-7xl">
 
                 <div className="bg-white border border-gray-100 rounded-3xl p-7 transition-all duration-500 hover:-translate-y-1.5 shadow-[0_20px_45px_-30px_rgba(15,23,42,0.35)] hover:shadow-[0_30px_60px_-30px_rgba(15,23,42,0.4)]">
                     <div>
@@ -189,7 +189,7 @@ export default function PricingSection() {
                     </div>
                 </div>
 
-                <div className="relative bg-blue-600 text-white border border-blue-500 rounded-3xl p-7 transition-all duration-500 -translate-y-4 shadow-[0_30px_60px_-20px_rgba(37,23,42,0.55)]">
+                <div className="relative bg-blue-600 text-white border border-blue-500 rounded-3xl p-7 transition-all duration-500 xl:-translate-y-4 shadow-[0_30px_60px_-20px_rgba(37,23,42,0.55)]">
 
                     <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-white px-4 py-1 font-bold text-xs text-blue-600 shadow-md tracking-wider">MOST POPULAR</div>
 

@@ -5,12 +5,12 @@ export default function Features() {
 
                 <div className="text-center mb-12 max-w-2xl mx-auto">
                     <p className="text-blue-600 uppercase tracking-wider mb-3">Compare plans</p>
-                    <h1 className="font-semibold text-5xl">Compare all features</h1>
-                    <p className="text-gray-500 mt-4">Every feature and per-order fee, side by side — pick the plan that fits how you sell.</p>
+                    <h1 className="font-semibold text-3xl md:text-4xl lg:text-5xl text-gray-900">Compare all features</h1>
+                    <p className="text-gray-500 text-base mt-4">Every feature and per-order fee, side by side — pick the plan that fits how you sell.</p>
                 </div>
 
                 <div className="border border-gray-200 bg-white rounded-3xl shadow-[0_24px_60px_-40px_rgba(15,23,42,0.45)]">
-                    <div className="overflow-x-visible rounded-3xl">
+                    <div className="overflow-x-auto lg:overflow-x-visible rounded-3xl">
                         <table className="w-full min-w-230 border-collapse">
                             <colgroup>
                                 <col className="w-[28%]" />
