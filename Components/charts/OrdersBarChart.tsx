@@ -21,14 +21,14 @@ export default function OrdersBarChart() {
 
       <div className="flex items-center justify-between mx-6">
         <div className="text-left space-y-2">
-          <h4 className="font-bold text-xl">Merchant Orders</h4>
-          <h4 className="font-extrabold text-2xl">46,757</h4>
+          <h4 className="font-semibold text-gray-900 text-lg">Merchant Orders</h4>
+          <h4 className="font-bold text-3xl">46,757</h4>
           <p className="text-gray-600 font-semibold">Weekly Orders</p>
         </div>
 
         <div className="flex gap-2">
-          <p className="text-gray-500 border border-gray-500 py-1 px-3 rounded-full cursor-pointer">Today</p>
-          <p className="bg-blue-600 text-white py-1 px-3 rounded-full cursor-pointer">This Week</p>
+          <p className="text-gray-500 text-sm border border-gray-200 py-1 px-3 rounded-full cursor-pointer">Today</p>
+          <p className="bg-blue-600 text-white text-sm py-1 px-3 rounded-full cursor-pointer">This Week</p>
         </div>
       </div>
 

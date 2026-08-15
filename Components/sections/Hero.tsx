@@ -12,11 +12,11 @@ export default function Hero() {
         <div className="relative mt-16 bg-[url('/Images/background.svg')] bg-no-repeat bg-cover max-w-1074px 
         mx-auto text-center space-y-2 px-4 pt-30 pb-20 text-black">
             <div>
-                <p className="text-blue-600 font-black text-base border border-blue-600 py-1 px-3 rounded-full inline-block">No. 1 Online business partner</p>
+                <p className="text-blue-600 font-medium text-base border border-blue-600 py-1 px-3 rounded-full inline-block">No. 1 Online business partner</p>
                 <div className="space-y-8 mt-5">
                     <div className="space-y-2">
-                        <h3 className="text-5xl mx-auto ">One Platform <br /> Thousands of Success Stories</h3>
-                        <p className="font-semibold ">More than 100,000 entrepreneurs trust ZatiqEasy <br />
+                        <h3 className="text-7xl mx-auto ">One Platform <br /> Thousands of Success Stories</h3>
+                        <p className="font-medium">More than 100,000 entrepreneurs trust ZatiqEasy <br />
                             Transform your idea into an online business — fast and easy</p>
                     </div>
 

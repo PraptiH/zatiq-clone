@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-:root {
+/* :root {
   --font-heading: var(--font-sora);
   --font-body: var(--font-inter);
   --font-bengali: var(--font-noto-bengali);
@@ -20,7 +20,7 @@
 
 .bengali {
   font-family: var(--font-bengali);
-}
+} */
 
 body {
   overflow-x: hidden;
