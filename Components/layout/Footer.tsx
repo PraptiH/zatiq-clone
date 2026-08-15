@@ -3,14 +3,14 @@ import Image from 'next/image'
 
 export default function Footer() {
     return (
-        <div className='bg-[url("/Images/footerBG.svg")] bg-no-repeat bg-cover min-h-96 pt-10 pb-12 px-30 space-y-16'>
-            <h1 className="text-5xl font-semibold text-center">Take Your Business Online, Effortlessly with Zatiq</h1>
+        <div className='bg-[url("/Images/footerBG.svg")] bg-no-repeat bg-cover min-h-96 pt-10 pb-12 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-30 space-y-16'>
+            <h1 className="text-xl sm:2xl md:3xl lg:4xl xl:text-5xl font-bold text-gray-800 text-center leading-tight">Take Your Business Online, Effortlessly with Zatiq</h1>
 
             <div className="bg-white rounded-2xl shadow-lg p-12">
 
-                <div className='grid grid-cols-4 gap-8 mb-12'>
+                <div className='grid lg:grid-cols-4 md:grid-cols-2 gap-8 mb-12'>
                     <div className='space-y-4'>
-                        <Image className='cursor-pointer' src={logo} alt='' />
+                        <Image width={160} height={27} className="h-auto w-32 cursor-pointer sm:w-36 lg:w-40" src={logo} alt="logo"/>
                         <p className='text-sm text-gray-600 leading-relaxed'>Streamlines customer management, enhances team collaboration in one intuitive platform for your sales process.</p>
                     </div>
 
@@ -42,7 +42,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className='bg-linear-to-b from-[#E0E1FF] to-white rounded-lg flex items-start justify-between p-12 mt-4 border-t border-gray-200'>
+                <div className='bg-linear-to-b from-[#E0E1FF] to-white rounded-lg flex flex-col gap-8 lg:flex-row items-start justify-between p-5 lg:p-12 mt-4 border-t border-gray-200'>
 
                     <div className='space-y-4'>
                         <h4 className='font-semibold text-lg text-gray-800'>Address</h4>
